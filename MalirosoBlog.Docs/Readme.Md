@@ -9,7 +9,8 @@ This application is Role-Based Access Control (RBAC) Blog Post Web API built usi
 This application by default uses an in-memory database, so you do not need to configure anything to use it.
 
 **PLEASE NOTE**
-**Using an In-memroy Db means everytime you restart the server all previous saved data is lost.**
+
+**Using an in-memroy Db means everytime you restart the server all previous saved data is lost.**
 
 Nevertheless, the application has been configured to also work with an external database if you choose.
 

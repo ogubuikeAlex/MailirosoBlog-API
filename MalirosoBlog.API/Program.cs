@@ -96,8 +96,6 @@ builder.Services.RegisterServices();
 
 builder.Services.AddHttpContextAccessor();
 
-//builder.Services.AddControllers(setupAction => { setupAction.Filters.Add<ValidateModelAttribute>(); });
-
 builder.Services.AddControllers(setupAction => { setupAction.ReturnHttpNotAcceptable = true; }).AddJsonOptions(
     options =>
     {

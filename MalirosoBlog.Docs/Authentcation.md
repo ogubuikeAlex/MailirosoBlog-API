@@ -29,19 +29,11 @@ Endpoints in this controller require authentication.
 
 - **HTTP Method**: POST
 - **Route**: `/signup`
-- **Summary**: Sign up to the app
+- **Summary**: Sign up to the app. Please note that the password to be used must have at least one number, one special charater and one capital letter.
 - **Request Body**: [CreateUserDTO](#createuserdto)
 - **Responses**:
   - **200 OK**: User signed up. Returns [UserResponseDTO](#userresponsedto)
   - **400 Bad Request**: User already exists. Returns [ErrorResponse](#errorresponse)
   - **500 Internal Server Error**: It's not you, it's us. Returns [ErrorResponse](#errorresponse)
 
-## Data Transfer Objects (DTOs)
 
-### LoginUserDTO
-
-```csharp
-public class LoginUserDTO
-{
-    // Define properties here
-}

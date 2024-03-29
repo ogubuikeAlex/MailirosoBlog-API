@@ -1,8 +1,6 @@
 # Official Documentation For MailirosoBlog API
 
-Hello There!
-
-This is the official documentation for the blog.
+Hello There! This is the official documentation for the blog.
 
 ## Specifics
 - Author Docs

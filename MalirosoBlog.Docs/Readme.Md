@@ -119,11 +119,8 @@ header
 }
 ```
 
-On Swagger, you can pass it via the authorize modal:
+On Swagger, you can pass it via the authorize modal.
 
-
-
-
-Note that if you use login details associated with an Author, you will only be able to access resources for the Author role and this is for credentials for the Admin role.
+### **Note that if you use login details associated with an Author, you will only be able to access resources for the Author role and this is for credentials for the Admin role.**
 
 ---

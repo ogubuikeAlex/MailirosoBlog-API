@@ -13,9 +13,7 @@ A Role-Based Access Control (RBAC) Blog Post Web API using ASP.NETCore Web API.
 
 ## Environment Variables
 
-To run this project, please add a .env file at the root of the `MalirosoBlog.API` project.
-
-You will need to add the following environment variables to your .env file:
+You will need to add the following environment variables to your .env file at the root of the `MalirosoBlog.API` project.:
 
 ```
 # DB Config
@@ -51,37 +49,6 @@ JWTConfiguration__Audience=http://localhost:44356
 - ASP.Net Web API
 - EFCore 8.0
 - MSSQL Server
-
-
-## Run Locally
-
-> **_NOTE:_**  Please check out Environment Variable Section to add .env file before running.
-
-Clone the project
-
-```bash
-  git clone https://github.com/king-Alex-d-great/MailirosoBlog-API.git
-```
-
-Go to the project directory
-
-```bash
-  cd MailirosoBlog-API
-```
-
-****
-Install dependencies (if necessary):
-
-```bash
-  dotnet restore
-```
-
-Start the server
-
-```bash
-  dotnet run
-```
-
 
 ## Documentation
 
@@ -246,10 +213,9 @@ Logs in a user with the provided credentials.
 | `request` | `CreateUserDTO` | **Required**. User sign-up details |
 
 
-
 ## Demo
 
-Insert gif or link to demo
+![image](https://github.com/king-Alex-d-great/MailirosoBlog-API/assets/58665121/ae4c54b9-bff6-4cee-9532-93ed80b5bafa)
 
 
 ## Features
@@ -267,4 +233,31 @@ The system is role based and so the features available to a user depends on what
 - View All Blogposts
 - View a Blogpost
 
+## Run Locally
 
+> **_NOTE:_**  Please check out Environment Variable Section to add .env file before running.
+
+Clone the project
+
+```bash
+  git clone https://github.com/king-Alex-d-great/MailirosoBlog-API.git
+```
+
+Go to the project directory
+
+```bash
+  cd MailirosoBlog-API
+```
+
+****
+Install dependencies (if necessary):
+
+```bash
+  dotnet restore
+```
+
+Start the server
+
+```bash
+  dotnet run
+```

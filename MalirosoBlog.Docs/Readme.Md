@@ -1,12 +1,8 @@
 # Official Documentation For MailirosoBlog API
 
-Hello There! This is the official documentation for the blog.
+Hello There! This is the official documentation for the blog API.
 
-## Specifics
-- Author Docs
-- Blogpost Docs
-- Auth Docs
-
+This application is Role-Based Access Control (RBAC) Blog Post Web API built using ASP.NET Core Web API.
 
 ## Database Configuration
 
@@ -124,3 +120,36 @@ On Swagger, you can pass it via the authorize modal.
 ### **Note that if you use login details associated with an Author, you will only be able to access resources for the Author role and this is for credentials for the Admin role.**
 
 ---
+
+## Specifics Documentation
+- [Author Docs](https://github.com/king-Alex-d-great/MailirosoBlog-API/blob/main/MalirosoBlog.Docs/Author.md)
+- [Blogpost Docs](https://github.com/king-Alex-d-great/MailirosoBlog-API/blob/main/MalirosoBlog.Docs/BlogSpot.md)
+- [Auth Docs](https://github.com/king-Alex-d-great/MailirosoBlog-API/blob/main/MalirosoBlog.Docs/Authentcation.md)
+
+## Environment Variables
+
+You will need to add the following environment variables to your .env file at the root of the `MalirosoBlog.API` project.:
+
+```
+# DB Config
+DatabaseConfiguration__Host=<DB-Server>
+DatabaseConfiguration__Name=<DB-Name>
+
+#jwt Config
+JWTConfiguration__Secret=<some-secret-key>
+JWTConfiguration__Issuer=<JWT-Issuer>
+JWTConfiguration__Audience=<JWT-Audience>
+```
+
+Sample .env:
+
+```
+# DB Config
+DatabaseConfiguration__Host=(localdb)\MSSQLLocalDB
+DatabaseConfiguration__Name=Maliroso
+
+#jwt Config
+JWTConfiguration__Secret=xgrrdupqizxpwvkitiiehvdcwfwqdhqvbgrpzjeoel
+JWTConfiguration__Issuer=http://localhost:44356/swagger/
+JWTConfiguration__Audience=http://localhost:44356
+```

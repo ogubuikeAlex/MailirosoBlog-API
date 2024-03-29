@@ -3,6 +3,7 @@ using MalirosoBlog.Data.Interfaces;
 using MalirosoBlog.Models.DTO.Request;
 using MalirosoBlog.Models.DTO.Response;
 using MalirosoBlog.Models.Entities;
+using MalirosoBlog.Services.Exceptions;
 using MalirosoBlog.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
@@ -36,7 +37,7 @@ namespace MalirosoBlog.Services.Implementation
                 x.UserId.ToLower() == request.UserId.ToLower().Trim());
 
             if (exisitingAuthor is not null)
-                throw new Exception("An author already exists");
+                throw new NotFoundException("An author already exists");
 
             var newAuthorDetails = _mapper.Map<Author>(request);
 
@@ -53,7 +54,7 @@ namespace MalirosoBlog.Services.Implementation
 
             //TODO: Create a custom Exception
             if (author is null || !author.Active)
-                throw new Exception("Author Not Found");
+                throw new NotFoundException("Author Not Found");
 
             author.Active = false;
 
@@ -67,7 +68,7 @@ namespace MalirosoBlog.Services.Implementation
             Author author = await _authorRepo.GetSingleByAsync(x => x.Id.ToLower().Equals(id.Trim().ToLower()), include: x => x.Include(x => x.User));
 
             if (author is null || !author.Active)
-                throw new Exception("Author Not Found");
+                throw new NotFoundException("Author Not Found");
 
             return _mapper.Map<AuthorResponse>(author);
         }
@@ -92,7 +93,7 @@ namespace MalirosoBlog.Services.Implementation
                 .GetSingleByAsync(x => x.UserId == id, include: x => x.Include(x => x.User));
 
             if (author is null || !author.Active)
-                throw new Exception("Author Not Found");
+                throw new NotFoundException("Author Not Found");
 
             return _mapper.Map<AuthorResponse>(author);
         }

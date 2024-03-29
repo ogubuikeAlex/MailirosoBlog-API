@@ -3,6 +3,7 @@ using MalirosoBlog.Data.Interfaces;
 using MalirosoBlog.Models.DTO.Request;
 using MalirosoBlog.Models.DTO.Response;
 using MalirosoBlog.Models.Entities;
+using MalirosoBlog.Services.Exceptions;
 using MalirosoBlog.Services.Extensions;
 using MalirosoBlog.Services.Interfaces;
 using Microsoft.AspNetCore.Http;
@@ -47,7 +48,7 @@ namespace MalirosoBlog.Services.Implementation
 
             if (exisitingBlogPost is not null)
             {
-                throw new Exception("An identical blogpost already exists");
+                throw new InvalidOperationException("An identical blogpost already exists");
             }
 
             var blogPost = _mapper.Map<BlogPost>(request);
@@ -68,16 +69,15 @@ namespace MalirosoBlog.Services.Implementation
             BlogPost blogPost = await _blogPostRepo.GetByIdAsync(id);
 
             if (blogPost == null || !blogPost.Active)
-                throw new Exception("Blog Post Not Found");
+                throw new NotFoundException("Blog Post Not Found");
 
             if (blogPost.AuthorId != authorProfile.AuthorId)
             {
                 throw new UnauthorizedAccessException("Only the Blog Creator Can Delete The Blog");
             }
-
-            //TODO: Create a custom Exception
+            
             if (blogPost == null || !blogPost.Active)
-                throw new Exception("Blog Post Not Found");
+                throw new NotFoundException("Blog Post Not Found");
 
             blogPost.Active = false;
 
@@ -93,7 +93,7 @@ namespace MalirosoBlog.Services.Implementation
             BlogPost blogPost = await _blogPostRepo.GetSingleByAsync(x => x.Id == id, include: x => x.Include(x => x.Author).ThenInclude(x => x.User));
 
             if (blogPost == null || !blogPost.Active)
-                throw new Exception("Blog Post Not Found");
+                throw new NotFoundException("Blog Post Not Found");
 
             return _mapper.Map<BlogPostResponse>(blogPost);
         }
@@ -125,10 +125,10 @@ namespace MalirosoBlog.Services.Implementation
             }            
 
             if (blogPost is null || !blogPost.Active)
-                throw new Exception("Blog Post Not Found");
+                throw new NotFoundException("Blog Post Not Found");
 
             if (blogPost.Title.Equals(request.Title.ToLower().Trim(), StringComparison.CurrentCultureIgnoreCase) && blogPost.Content.ToLower() == request.Content.ToLower().Trim())
-                throw new Exception("The Blog Post Update Information Matches The Exisiting Blogpost!");
+                throw new InvalidOperationException("The Blog Post Update Information Matches The Exisiting Blogpost!");
 
             _mapper.Map(request, blogPost);
 

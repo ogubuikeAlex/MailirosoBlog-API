@@ -95,7 +95,7 @@ namespace MalirosoBlog.Services.Implementation
             {
                 await _userManager.DeleteAsync(user);
 
-                throw new Exception("Signup Failed");
+                throw new InvalidOperationException("Signup Failed");
             }
 
             AddUserToRoleRequest userRole = new() { Email = user.Email, Role = "Author" };

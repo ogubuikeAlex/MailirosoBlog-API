@@ -1,4 +1,5 @@
 using MalirosoBlog.API.DataSeeder;
+using MalirosoBlog.Services.Exceptions;
 using MalirosoBlog.API.Extensions;
 using MalirosoBlog.Data.Context;
 using MalirosoBlog.Models.Entities;
@@ -21,10 +22,17 @@ Dotenv.Load(dotenv);
 
 var builder = WebApplication.CreateBuilder(args);
 
-/*builder.Services.AddDbContext<MailRosoBlogDbContext>(
-    options => options.UseInMemoryDatabase("AppDb"));*/
+builder.Services.AddDbContext<MailRosoBlogDbContext>(
+    options => options.UseInMemoryDatabase("AppDb"));
 
-string partialDbConnString = builder.Configuration.GetConnectionString("DefaultConnection")!;
+/*
+THE CODE BELOW IS COMMENTED BECAUE WE ARE  USING THE IN-MEMORY DB. IF YOU WOULD LIKE TO USE A DB OTHER THAN THE IN-MEMORY DB
+PLEASE CHECK THE DOCS FOR HOW TO ADD A .ENV FILE WITH NECESSARY CREDENTIALS 
+AFTER YOU ADD THE .ENV File
+Please Uncomment The Code block below (Lines 34 -> 48) and Comment The In-memory config above (Lines 25 -> 25)
+*/
+
+/*string partialDbConnString = builder.Configuration.GetConnectionString("DefaultConnection")!;
 string connectionString = builder.Configuration.GetSection(nameof(DatabaseConfiguration)).Get<DatabaseConfiguration>()!.BuildConnectionString(partialDbConnString!);
 
 builder.Services.AddDbContext<MailRosoBlogDbContext>(options =>
@@ -37,7 +45,7 @@ builder.Services.AddDbContext<MailRosoBlogDbContext>(options =>
             errorNumbersToAdd: null);
     });
 
-});
+});*/
 
 builder.Services.AddIdentity<ApplicationUser, ApplicationRole>(config =>
 {
@@ -172,9 +180,7 @@ app.UseExceptionHandler(appError =>
             var status = ResponseStatus.FATAL_ERROR;
             switch (exceptionHandleFeature.Error)
             {
-                case InvalidOperationException:
-                case ArgumentNullException:
-                case ArgumentException:
+                case InvalidOperationException:                
                     context.Response.StatusCode = StatusCodes.Status400BadRequest;
                     status = ResponseStatus.APP_ERROR;
                     break;
@@ -185,6 +191,10 @@ app.UseExceptionHandler(appError =>
                 case DbUpdateException:
                     context.Response.StatusCode = StatusCodes.Status409Conflict;
                     status = ResponseStatus.APP_ERROR;
+                    break;
+                case NotFoundException:
+                    context.Response.StatusCode = StatusCodes.Status404NotFound;
+                    status = ResponseStatus.NOT_FOUND;
                     break;
                 default:
                     context.Response.StatusCode = StatusCodes.Status500InternalServerError;

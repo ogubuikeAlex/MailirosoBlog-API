@@ -4,13 +4,21 @@ Hello There! This is the official documentation for the blog API.
 
 This application is Role-Based Access Control (RBAC) Blog Post Web API built using ASP.NET Core Web API.
 
+## Data Seeding
+To enable you start immediately, when you run the application some information will be seeded into the DB.
+
+These include
+- Information for the application Admin
+- A demo author
+- Some demo blogposts
+
 ## Database Configuration
 
 This application by default uses an in-memory database, so you do not need to configure anything to use it.
 
 **PLEASE NOTE**
 
-**Using an in-memroy Db means everytime you restart the server all previous saved data is lost.**
+**Using an in-memroy Db means everytime you restart the server all previous saved data is lost**
 
 Nevertheless, the application has been configured to also work with an external database if you choose.
 
@@ -42,14 +50,6 @@ Having the Admin role will allow you =>
 You do not need to be logged in to
 - view all blogposts
 - view a blog post
-
-## Data Seeding
-To enable you start testing immediately, when you run the application some information will be seeded into the DB.
-
-These include
-- Information for the application Admin
-- A demo author
-- Some demo blogposts
 
 ## Application Authentication 
 
@@ -118,7 +118,7 @@ header
 
 On Swagger, you can pass it via the authorize modal.
 
-### **Note that if you use login details associated with an Author, you will only be able to access resources for the Author role and this is for credentials for the Admin role.**
+### **Note that if you use login details associated with an Author, you will only be able to access resources for the author role and this is the same for credentials for the admin role.**
 
 ---
 

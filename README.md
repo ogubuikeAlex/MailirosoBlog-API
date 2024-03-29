@@ -203,6 +203,7 @@ Logs in a user with the provided credentials.
 -  **Sign Up Author**
 
   Registers a new Author on the application.
+  Please note that the password to be used must be up to 8 values, should have at least one number, one special charater and one capital letter.
 
 ```http
   POST /api/auth/signup

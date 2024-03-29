@@ -16,7 +16,7 @@ Nevertheless, the application has been configured to also work with an external 
 
 All you have to do is:
 - Go to `MailirosoBlog.API`
-- Create a .env variable (Check `MailirosoBlog.API/Readme.md` for how to do this)
+- Create a .env variable (Check [here](https://github.com/king-Alex-d-great/MailirosoBlog-API/blob/main/MalirosoBlog.Docs/Readme.Md#environment-variables) for how to do this)
 - Go to `MailirosoBlog.API/Program.cs` file
 - Simply comment the in-memory db configuration
 - Then uncomment the external db configuration

@@ -1,5 +1,5 @@
 
-# MalirosoBlog API
+# DuckyBlog API
 
 A Role-Based Access Control (RBAC) Blog Post Web API using ASP.NETCore Web API. 
 
@@ -22,7 +22,7 @@ A Role-Based Access Control (RBAC) Blog Post Web API using ASP.NETCore Web API.
 
 ## Documentation
 
-If you're looking for a comprehensive document, [please visit our documentation project](https://github.com/king-Alex-d-great/MailirosoBlog-API/tree/main/MalirosoBlog.Docs). 
+If you're looking for a comprehensive document, [please visit our documentation project](https://github.com/king-Alex-d-great/DuckyBlog-API/tree/main/MalirosoBlog.Docs). 
 
 **Otherwise, here is a concise API reference for the application:**
 
@@ -186,7 +186,7 @@ Logs in a user with the provided credentials.
 
 ## Demo
 
-![image](https://github.com/king-Alex-d-great/MailirosoBlog-API/assets/58665121/ae4c54b9-bff6-4cee-9532-93ed80b5bafa)
+![image](https://github.com/king-Alex-d-great/DuckyBlog-API/assets/58665121/ae4c54b9-bff6-4cee-9532-93ed80b5bafa)
 
 
 ## Features
@@ -211,13 +211,13 @@ The system is role based and so the features available to a user depends on what
 Clone the project
 
 ```bash
-  git clone https://github.com/king-Alex-d-great/MailirosoBlog-API.git
+  git clone https://github.com/king-Alex-d-great/DuckyBlog-API.git
 ```
 
 Go to the project directory
 
 ```bash
-  cd MailirosoBlog-API
+  cd DuckyBlog-API
 ```
 
 ****
